@@ -6,6 +6,8 @@ package StudentDao;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
@@ -120,6 +122,23 @@ public class StudentDao {
 		
 	}
 
+	
+	public static List<String> getStudentCoursesById(String Id) throws SQLException{
+		int changes = 0;
+		ResultSet rs = null;
+		List<String> list = new ArrayList<String>();
+		String SQL ="select coursename from student_course ,Course_info where Student_Course.StudentId = ? && student_course.CourseId = Course_info.primeId;";
+		Connection conn = ConnectionFactory.CreateConnection();
+		PreparedStatement  ps = (PreparedStatement) conn.prepareStatement(SQL);
+		ps.setString(1, Id);
+		rs = ps.executeQuery();
+		while(rs.next()){
+			list.add(rs.getString(1));
+		}
+		return list;
+		
+		
+	}
 	/**
 	 * @param args
 	 * @throws SQLException
@@ -129,6 +148,13 @@ public class StudentDao {
 		Student student = new Student();
 		student = StudentDao.FindStudentById("1");
 		System.out.println(student);
+		List<String> list = new ArrayList<String>();
+		list = StudentDao.getStudentCoursesById("11195002");
+		System.out.println(list);
+		
+		
 	}
+	
+
 
 }

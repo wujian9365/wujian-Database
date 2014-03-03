@@ -19,8 +19,8 @@ import ConnectionFactory.ConnectionFactory;
 public class BookDao {
 	/**
 	 * 
-	 * @param Id
-	 * @return Book
+	 * @param BookId 
+	 * @return book实例
 	 * @throws SQLException
 	 */
 	public static Book FindBookById(String Id) throws SQLException {
@@ -47,7 +47,7 @@ public class BookDao {
 
 	/**
 	 * 
-	 * @param book
+	 * @param book实例
 	 * @return 变化行数
 	 * @throws SQLException
 	 */
@@ -89,7 +89,7 @@ public class BookDao {
 	/**
 	 * 
 	 * @param book
-	 * @return
+	 * @return 变化行数
 	 * @throws SQLException
 	 */
 	public static int UpdateBook(Book book) throws SQLException {
@@ -114,8 +114,8 @@ public class BookDao {
 	/**
 	 * 
 	 * @param book
-	 * @param Id
-	 * @return
+	 * @param 变更的主键Id
+	 * @return 数据库变化行数
 	 * @throws SQLException
 	 */
 	public static int UpdateBook(Book book, String Id) throws SQLException {

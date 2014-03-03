@@ -18,6 +18,12 @@ import TeacherBean.Teacher;
  */
 public class TeacherDao {
 
+	/**
+	 * 
+	 * @param Id
+	 * @return Teacher实例
+	 * @throws SQLException
+	 */
 	public static Teacher FindTeacherById(String Id) throws SQLException {
 		Teacher teacher = new Teacher();
 		ResultSet rs = null;
@@ -46,6 +52,13 @@ public class TeacherDao {
 
 	}
 
+	
+	/**
+	 * 
+	 * @param teacher
+	 * @return 变化行数
+	 * @throws SQLException
+	 */
 	public static int InsertTeacher(Teacher teacher) throws SQLException {
 		int changes = 0;
 		String SQL = "insert into teacher values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -71,6 +84,12 @@ public class TeacherDao {
 		
 	}
 	
+	/**
+	 * 
+	 * @param Id
+	 * @return 变化行数
+	 * @throws SQLException
+	 */
 	public static int DeleteTeacherById(String Id) throws SQLException{
 		int changes = 0;
 		String SQL = "delete from teacher where teacherid = ?";
@@ -82,6 +101,12 @@ public class TeacherDao {
 		
 	}
 	
+	/**
+	 * 
+	 * @param teacher
+	 * @return 变化行数
+	 * @throws SQLException
+	 */
 	public static int UpdateTeacherBy(Teacher teacher) throws SQLException{
 		int changes = 0;
 		String SQL = "update teacher set teacher = ?,teachername = ?,academy = ?,Class = ?,installdate =?,gender =?,race = ?,office =?,title =?,account=?,password =?,picture=?,root =? where teacherid =?";
