@@ -21,8 +21,7 @@ import StuedntBean.Student;
 public class StudentDao {
 	/**
 	 * 
-	 * @param Id
-	 *            学生ID
+	 * @param 学生Id（String）
 	 * @return Student实例
 	 * @throws SQLException
 	 */
@@ -56,8 +55,8 @@ public class StudentDao {
 
 	/**
 	 * 
-	 * @param student
-	 * @return
+	 * @param 封装好的修改后的学生实例
+	 * @return 数据库变动行数
 	 * @throws SQLException
 	 */
 	public static int InsertStudent(Student student) throws SQLException {
@@ -83,7 +82,12 @@ public class StudentDao {
 		return changes;
 
 	}
-
+	/**
+	 * 
+	 * @param 要删除的学生 StudentId(String)
+	 * @return 数据库变动行数
+	 * @throws SQLException
+	 */
 	public static int DeleteStudentById(String Id) throws SQLException {
 		int changes = 0;
 		String SQL = "delete from student where studentid = ?";
@@ -95,7 +99,12 @@ public class StudentDao {
 
 	}
 	
-	
+	/**
+	 * 
+	 * @param 要更新的封装好的学生实例(Student)
+	 * @return 数据库变动行数
+	 * @throws SQLException
+	 */
 	public static int UpdateStudent(Student student) throws SQLException{
 		int changes = 0;
 		String SQL = "update student set StudentId = ?,StudentName = ?,Academy = ?,StudingClass = ?,InstallDate = ?,Grade = ?Gender = ?,Race = ?,Account = ?,Password = ?,Picture = ?,Root = ? where StudentId = ? ";
@@ -122,7 +131,12 @@ public class StudentDao {
 		
 	}
 
-	
+	/**
+	 * 
+	 * @param 要查询的学生StudentId (String)
+	 * @return 返回选修课程名的结果集list
+	 * @throws SQLException
+	 */
 	public static List<String> getStudentCoursesById(String Id) throws SQLException{
 		int changes = 0;
 		ResultSet rs = null;

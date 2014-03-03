@@ -24,7 +24,7 @@ public class CourseInfoDao {
 	/**
 	 * 
 	 * @param Id
-	 * @return
+	 * @return CourseInfo实例
 	 * @throws SQLException
 	 */
 	public static CourseInfo FindCousreInfoById(String Id) throws SQLException {
@@ -50,7 +50,13 @@ public class CourseInfoDao {
 		return cInfo;
 
 	}
-
+	
+	/**
+	 * 
+	 * @param CourseInfo实例
+	 * @return 数据库变化行数
+	 * @throws SQLException
+	 */
 	public static int InsertCourseInfo(CourseInfo cInfo) throws SQLException {
 		int changes = 0;
 		String SQL = "insert into CourseInfo values(?,?,?,?,?,?,?,?,?,?)";
@@ -72,7 +78,12 @@ public class CourseInfoDao {
 
 	}
 	
-	
+	/**
+	 * 
+	 * @param CourseId
+	 * @return 数据库变化行数
+	 * @throws SQLException
+	 */
 	public static int DeleteCourseInfoById(String Id) throws SQLException{
 		int changes = 0;
 		String SQL = "";
@@ -87,7 +98,7 @@ public class CourseInfoDao {
 	/**
 	 * 
 	 * @param cInfo
-	 * @return
+	 * @return 数据库变化行数
 	 * @throws SQLException
 	 */
 	public static int UpdateCourseInfo(CourseInfo cInfo) throws SQLException{

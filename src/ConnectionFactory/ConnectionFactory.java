@@ -16,7 +16,10 @@ public class ConnectionFactory {
 	
 	
 	
-	
+	/**
+	 * 数据库连接工厂
+	 * @return 返回Connection
+	 */
 	public static Connection CreateConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
